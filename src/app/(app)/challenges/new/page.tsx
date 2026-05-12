@@ -1,11 +1,10 @@
+import { Suspense } from 'react';
 import { redirect } from 'next/navigation';
 
 import { getUserServerCtx } from '@/app/server/user-server-ctx';
 import { CreateChallengeForm } from '@/modules/challenge/components/create-challenge-form';
 
-export const dynamic = 'force-dynamic';
-
-const NewChallengePage = async () => {
+const NewChallengeContent = async () => {
 	const { loggedInUser } = await getUserServerCtx();
 
 	if (!loggedInUser) {
@@ -23,5 +22,11 @@ const NewChallengePage = async () => {
 		</main>
 	);
 };
+
+const NewChallengePage = () => (
+	<Suspense>
+		<NewChallengeContent />
+	</Suspense>
+);
 
 export default NewChallengePage;
