@@ -3,6 +3,8 @@ import { redirect } from 'next/navigation';
 import { getUserServerCtx } from '@/app/server/user-server-ctx';
 import { CreateChallengeForm } from '@/modules/challenge/components/create-challenge-form';
 
+export const dynamic = 'force-dynamic';
+
 const NewChallengePage = async () => {
 	const { loggedInUser } = await getUserServerCtx();
 

@@ -5,6 +5,8 @@ import Podium from '@/components/leaderboard/podium';
 import UserRanks from '@/components/leaderboard/user-ranks';
 import { cn } from '@/lib/cn';
 
+export const dynamic = 'force-dynamic';
+
 const LeaderboardPage = async () => {
 	const { loggedInUser } = await getUserServerCtx();
 	const userId = loggedInUser?.id;
